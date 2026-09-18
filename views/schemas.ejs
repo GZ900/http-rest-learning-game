@@ -4,16 +4,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Resource Schemas</title>
+
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 
-    <h1>Resource Schemas</h1>
+    <input
+        type="checkbox"
+        id="theme-toggle"
+        class="theme-toggle"
+    >
 
-    <p>The schemas page is working.</p>
+    <div class="page">
 
-    <a href="/">Back to Game</a>
+        <main class="schemas-page">
+
+            <header class="schemas-header">
+
+                <div class="header-top">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            HTTP & REST Learning Game
+                        </p>
+
+                        <h1>
+                            Resource Schemas
+                        </h1>
+
+                    </div>
+
+
+                    <label
+                        for="theme-toggle"
+                        class="theme-button"
+                    >
+                        ◐ Theme
+                    </label>
+
+                </div>
+
+
+                <p class="schemas-description">
+                    Use these schemas to understand the structure
+                    of the resources available in the API.
+                </p>
+
+
+                <a
+                    href="/"
+                    class="back-link"
+                >
+                    ← Back to Game
+                </a>
+
+            </header>
+
+
+            <section class="schema-grid">
+
+                <% Object.values(schemas).forEach((schema) => { %>
+
+                    <article class="schema-card">
+
+                        <div class="schema-card-header">
+
+                            <span class="resource-dot"></span>
+
+                            <h2>
+                                <%= schema.resource %>
+                            </h2>
+
+                        </div>
+
+
+                        <div class="schema-table">
+
+                            <div class="schema-row schema-heading">
+
+                                <span>
+                                    Field
+                                </span>
+
+                                <span>
+                                    Type
+                                </span>
+
+                            </div>
+
+
+                            <% schema.fields.forEach((field) => { %>
+
+                                <div class="schema-row">
+
+                                    <span class="field-name">
+                                        <%= field.name %>
+                                    </span>
+
+                                    <span class="field-type">
+                                        <%= field.type %>
+                                    </span>
+
+                                </div>
+
+                            <% }) %>
+
+                        </div>
+
+                    </article>
+
+                <% }) %>
+
+            </section>
+
+        </main>
+
+    </div>
 
 </body>
 
